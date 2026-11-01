@@ -1,0 +1,14 @@
+{
+  "name": "flito",
+  "displayName": "Flito",
+  "version": "1.0.0",
+  "description": "Work in your Flito CRM from Claude: find customers, review the pipeline, check deals, prepare and send quotes, log calls and reply to email, signed in to your own Flito.",
+  "author": {
+    "name": "Flito",
+    "url": "https://flito.ai"
+  },
+  "homepage": "https://github.com/opendimension/flito-plugins",
+  "repository": "https://github.com/opendimension/flito-plugins",
+  "license": "MIT",
+  "keywords": ["crm", "sales", "pipeline", "deals", "quotes", "mcp"]
+}
