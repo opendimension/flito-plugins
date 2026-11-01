@@ -1,6 +1,10 @@
 {
   "name": "flito",
-  "owner": { "name": "Flito", "url": "https://flito.ai" },
+  "owner": {
+    "name": "Flito",
+    "url": "https://flito.ai"
+  },
+  "description": "The Flito plugin: your Flito CRM in Claude, with the Flito connection and skills for accounts, the pipeline, deals, quotes, activity and email.",
   "plugins": [
     {
       "name": "flito",

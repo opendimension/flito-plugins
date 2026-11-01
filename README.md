@@ -12,9 +12,10 @@ The Flito plugin puts your Flito CRM in Claude and ChatGPT: the Flito connection
 **Claude Code**
 
 ```bash
-claude plugin marketplace add opendimension/flito-plugins
-claude plugin install flito@flito
+claude plugin install flito --marketplace opendimension/flito-plugins
 ```
+
+Inside Claude Code, the same works as `/plugin install flito --marketplace opendimension/flito-plugins`.
 
 **Claude (web and desktop):** Customize, Plugins, Add, Add marketplace, then enter `opendimension/flito-plugins` and add Flito. Open the plugin's Connectors tab and connect Flito.
 
