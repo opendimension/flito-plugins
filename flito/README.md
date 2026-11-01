@@ -11,4 +11,4 @@ Work in your Flito CRM from Claude and ChatGPT. Ask about customers, deals, quot
 
 The app works as you, with no more access than you have. Before anything risky, such as sending an email or a quote, creating a quote, deleting, or changing many records at once, it shows you what will happen and waits for your yes. Plain changes you ask for, such as a note or a task, it just makes. Every change is kept in the record's history, where Flito can undo it.
 
-Set-up for each app: https://flito.ai/docs/plugins
+Install steps for each app: https://github.com/opendimension/flito-plugins#install
