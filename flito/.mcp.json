@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "flito": { "type": "http", "url": "https://flito.ai/mcp" }
+  }
+}

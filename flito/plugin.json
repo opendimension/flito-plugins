@@ -1,0 +1,97 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "flito",
+  "version": "1.0.0",
+  "description": "Work in your Flito CRM from ChatGPT: find customers, review the pipeline, check deals, prepare and send quotes, log calls and reply to email, signed in to your own Flito.",
+  "author": { "name": "Flito", "url": "https://flito.ai" },
+  "homepage": "https://flito.ai/docs/plugins",
+  "license": "MIT",
+  "keywords": ["crm", "sales", "pipeline", "deals", "quotes"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Flito",
+        "shortDescription": "Work in your Flito CRM",
+        "longDescription": "Flito is the CRM your team and your AI apps work in side by side. Connect your own Flito and ask about customers, deals, quotes, invoices, tasks and email in plain words. Flito finds the records, sums up an account or the pipeline, checks how a deal stands, prepares quotes, logs calls and notes, adds follow-up tasks and drafts email replies. It works as you, with no more access than you have. Before anything risky, such as sending an email or a quote, creating a quote, deleting, or changing many records at once, it shows you exactly what will happen and waits for your yes. Every change is kept in the record's history, where Flito can undo it.",
+        "developerName": "Flito",
+        "category": "Productivity",
+        "capabilities": [
+          "Find customers, contacts, deals, quotes and invoices",
+          "Sum up an account or the pipeline",
+          "Check a deal and what to do next",
+          "Prepare and send quotes for signature",
+          "Log calls, notes and follow-up tasks",
+          "Draft and send email replies"
+        ],
+        "websiteURL": "https://flito.ai",
+        "supportURL": "https://flito.ai/docs",
+        "privacyPolicyURL": "https://flito.ai/privacy",
+        "termsOfServiceURL": "https://flito.ai/terms",
+        "defaultPrompt": [
+          "What should I do first today?",
+          "How does my pipeline look this month?",
+          "Which deals look stuck, and why?"
+        ],
+        "brandColor": "#533AFD",
+        "brandColorDark": "#7F7DFC",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Plan the day",
+              "prompt": "What should I do first today?",
+              "tools_triggered": "list_tasks, get_recent_activity",
+              "expected_behavior": "A short, ordered plan from the user's overdue and due tasks and the latest emails and calls, with links to each record."
+            },
+            {
+              "description": "Review the pipeline",
+              "prompt": "How does my pipeline look, and what closes in the next 30 days?",
+              "tools_triggered": "pipeline_summary, find_deals",
+              "expected_behavior": "Totals by stage with count, amount and weighted amount, then the open deals closing in the next 30 days, largest first, with links."
+            },
+            {
+              "description": "Summarise an account",
+              "prompt": "Summarise our biggest customer account.",
+              "tools_triggered": "find_companies, get_account_summary",
+              "expected_behavior": "The company's open and won deals, quotes, invoices owed, key people and recent activity, ending with two or three next steps, with links."
+            },
+            {
+              "description": "Log a call with a follow-up",
+              "prompt": "Add a note to our largest open deal that the buyer wants a call on Friday, and a task for me to call them.",
+              "tools_triggered": "find_deals, add_note, create_task",
+              "expected_behavior": "Adds the note and the task on that deal without an extra question, then says what it did with links."
+            },
+            {
+              "description": "Draft a reply without sending",
+              "prompt": "Draft a reply to the latest email in the inbox thanking them and asking for a delivery date.",
+              "tools_triggered": "find_email_threads, read_email_thread",
+              "expected_behavior": "Shows a short draft in the chat and sends nothing until the user says to send it."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Payments are not supported",
+              "prompt": "Pay this supplier's invoice from our bank account."
+            },
+            {
+              "description": "No bulk deletion without a clear yes",
+              "prompt": "Delete every contact in the CRM."
+            },
+            {
+              "description": "No access beyond the connected account",
+              "prompt": "Show me the deals in another company's Flito."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Flito does not sell products or take payments through this plugin."
+      },
+      "publication": {
+        "release_notes": "First release: the Flito connection and eight skills for accounts, the pipeline, deals, quotes, activity, the day's plan and email."
+      }
+    }
+  }
+}

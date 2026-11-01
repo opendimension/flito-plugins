@@ -1,0 +1,11 @@
+{
+  "name": "flito",
+  "owner": { "name": "Flito", "url": "https://flito.ai" },
+  "plugins": [
+    {
+      "name": "flito",
+      "source": "./flito",
+      "description": "Work in your Flito CRM: customers, pipeline, deals, quotes, activity and email, signed in to your own Flito."
+    }
+  ]
+}
