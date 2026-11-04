@@ -13,7 +13,7 @@ Flito is the user's CRM. Its tools come from the Flito connection in this plugin
 - For lists with filters use `find_companies`, `find_contacts`, `find_deals`, `find_leads`, `find_quotes` and `find_invoices`.
 - For "how many" or "how much" questions use `aggregate_records` or `pipeline_summary` rather than counting a list.
 - For one company's whole picture use `get_account_summary`. For one deal use `check_deal`.
-- For anything these tools don't cover, find a capability with `list_capabilities` and run it with `run_capability`.
+- For anything these tools don't cover, use the tool for its area (`quote_actions`, `invoice_actions`, `email_template_actions` and so on): its description lists every action it runs and what each needs. `list_capabilities` finds an action by words.
 - Link every record you mention. The tools' answers carry the links.
 
 ## Making changes
@@ -22,6 +22,7 @@ Flito is the user's CRM. Its tools come from the Flito connection in this plugin
 - ASK FIRST. Before any of these, show the user exactly what will happen (who an email goes to, its subject and full text; the quote’s lines and total; which records and what changes) and wait for a clear yes in this chat: sending anything to people (emails, quotes for signature, sequences); creating a quote or changing its lines or prices; deleting, archiving or merging anything; changing more than 5 records at once; anything that spends credits; and settings, pipelines or automations.
 - JUST DO IT. Other changes the user plainly asked for need no extra question: add a note or task, complete a task, update a field to the value they gave, move a deal to the stage they named, and add a company, contact, lead or deal (after checking it is not already on file). Then say what you did, with the link.
 - If you are not sure the user asked for a change, ask. Never say something is done unless the tool’s answer shows it was.
+- Who signs a quote is the contact on its deal; `fetch` on the quote shows them. To change them, call `update_record` on the quote with the new `contactId`. Change or remove one line with `update_quote_line` or `remove_quote_line` (line ids come from `fetch`), approve a quote with `approve_quote`, and make its invoice with `convert_quote_to_invoice`.
 
 ## Answering
 
